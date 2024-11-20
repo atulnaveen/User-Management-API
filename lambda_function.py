@@ -16,7 +16,7 @@ def valid_email(email):
 def valid_phone(phone):
     return phone.isdigit() and len(phone) == 10
 
-# Converting the date from 'string' format to the 'date' format for displaying to the user
+# Converting the dob from 'string' format to the 'date' format for displaying to the user
 def convert_string_to_date(date_str):
     try:
         parsed_date = datetime.strptime(date_str, "%a, %d %b %Y %H:%M:%S GMT")
@@ -27,7 +27,7 @@ def convert_string_to_date(date_str):
         except ValueError:
             return None
 
-# Converting the date from 'date' format to the 'string' format for storage into DynamoDB table 
+# Converting the dob from 'date' format to the 'string' format for storage into DynamoDB table 
 def convert_date_to_string(date_obj):
     if isinstance(date_obj, datetime):
         return date_obj.strftime("%Y-%m-%d")
@@ -154,7 +154,7 @@ def create_user(event):
 
         try:
             dob_str = data["dob"]
-            dob = convert_string_to_date(dob_str)     # Convert the string input of date into 'date' format
+            dob = convert_string_to_date(dob_str)     # Convert the string input of dob into 'date' format
         except ValueError:
             return {
                 'statusCode': 400,
@@ -167,7 +167,7 @@ def create_user(event):
         user = {
             "id": user_id,
             "lastname": data["lastname"],
-            "dob": convert_date_to_string(dob),     # converting date to string format for insertion into DynamoDB table
+            "dob": convert_date_to_string(dob),     # converting dob to string format for insertion into DynamoDB table
             "address": data["address"],
             "gender": data["gender"],
             "email": data["email"],
