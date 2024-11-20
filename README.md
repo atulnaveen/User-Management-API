@@ -2,7 +2,8 @@
 * ## User Management API using AWS and NoSQL
 
 This project provides a Serverless REST API that manages user data with the help of AWS DynamoDB and AWS Lambda with API Gateway. 
-This User Management API focuses on performing CRUD(Create-Read-Update-Delete) operations along with handling the possible errors and validation checks. 
+This User Management API focuses on performing CRUD(Create-Read-Update-Delete) operations along with handling the possible errors and validation checks. The API also returns appropriate HTTP status codes for each operations including 200(OK), 201(Created), 400(Bad Request), 404(Not Found), 500(Internal Server Error).
+
 
 The API supports the following operations: 
 ##### 1. GET /users: Endpoint that returns all the users present in DynamoDB table
@@ -10,6 +11,7 @@ The API supports the following operations:
 ##### 3. POST /users: Endpoint that is used to create a new user entry in the DynamoDB table
 ##### 4. DELETE /users/{user_id}: Endpoint that is used to Delete a user by using User_Id
 ##### 5. PUT /users/{user_id}: Endpoint that is used to Update user details for specific user by using their User_Id
+
 
 * ## Key Features
 
